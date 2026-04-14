@@ -47,11 +47,8 @@ pipeline {
         stage('Run Application') {
             steps {
                 sh '''
-                echo "Files in target:"
-                ls -l target
-
-                echo "Running JAR..."
-                java -jar target/*.jar
+                echo "Running using Maven..."
+                mvn exec:java -Dexec.mainClass="com.example.App"
                 '''
             }
         }
